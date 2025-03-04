@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,intial-scale=1.0"/>
+    <title>start</title>
+     <link rel="icon" href="5.png"/>
+
+     <style>
+       
+        @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
+
+
+        body::before{
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        border: 10px solid #5f2571; 
+        box-sizing: border-box;
+        pointer-events: none; 
+        filter: blur(2px);
+        }
+
+        body{
+            background-color: #F4EADA;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        #background-video{
+            position: fixed;
+            top: 0;
+            left: 10px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            position: fixed;
+        }
+
+        .circle {
+            width: 250px;
+            margin-top: 80px;
+            height: 250px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            border: 5px solid #a582af; 
+            
+        }
+
+        .round-button {
+        width: 150px;
+        height: 150px;
+        background-color: #fffbf5; 
+        color: rgb(255, 255, 255); 
+        font-size: 40px;
+        font-family: "Aref Ruqaa", serif;
+        font-weight: bold;
+        border-radius: 50%; 
+        cursor: pointer; 
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: 0.3s; 
+        }
+
+        .round-button:hover {
+        background-color: #e7dccd;
+        transform: scale(1.1);
+        }
+
+        a{
+        text-decoration: none;
+        color: #5d3a68;
+        }
+
+        .page-transition {
+        clip-path: circle(0% at 50% 50%);
+        animation: circleReveal 1s ease-out forwards;
+        }
+
+        @keyframes circleReveal {
+        from { clip-path: circle(0% at 50% 50%); }
+        to { clip-path: circle(100% at 50% 50%); }
+        }
+
+        
+    
+
+        .spinner-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #8722a5;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-top: -90px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+     </style>
+
+</head>
+
+
+<body>
+    <center>
+
+        <div class="circle">
+        <button class="round-button"><a href="founding.html">ابدأ رحلتك</a></button>
+        </div>
+
+        <video autoplay muted playsinline id="background-video">
+            <source src="start ur journy.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+           
+        </div>
+
+
+        <div class="spinner-container" id="spinner-container">
+            <div class="spinner"></div>
+        </div>
+    </center>
+
+    <script>
+
+        window.addEventListener("load", function() {
+            document.getElementById("spinner-container").style.visibility = "hidden";
+        });
+
+        window.addEventListener("offline", function() {
+            document.getElementById("spinner-container").style.visibility = "visible";
+        });
+
+        window.addEventListener("online", function() {
+            document.getElementById("spinner-container").style.visibility = "hidden";
+        });
+    </script>
+   
+</body>
+</html>
